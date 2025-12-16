@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Examen_Mvvm.Views.DescuentoAppView"
+             xmlns:viewModel="clr-namespace:Examen_Mvvm.ViewModels"
+             Title="Cálculo de Descuento">
+
+    <ContentPage.BindingContext>
+        <viewModel:DescuentoAppViewModels/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="10">
+
+            <!-- Título -->
+            <Label Text="Calcula tu Descuento"
+                   FontFamily="Poppins"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   BackgroundColor="Blue"
+                   Padding="20,10"
+                   TextColor="White"/>
+
+            <!-- Producto 1 -->
+            <Label Text="Ingrese el valor del Producto 1"/>
+            <Entry Text="{Binding Producto_1}"
+                   Keyboard="Numeric"/>
+
+            <!-- Producto 2 -->
+            <Label Text="Ingrese el valor del Producto 2"/>
+            <Entry Text="{Binding Producto_2}"
+                   Keyboard="Numeric"/>
+
+            <!-- Producto 3 -->
+            <Label Text="Ingrese el valor del Producto 3"/>
+            <Entry Text="{Binding Producto_3}"
+                   Keyboard="Numeric"/>
+
+            <!-- Botón Calcular -->
+            <Button Text="Calcular"
+                    BackgroundColor="#FFFB0000"
+                    Command="{Binding ValidacionCommand}"
+                    TextColor="White"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    FontFamily="Poppins"/>
+
+            <!-- SubTotal -->
+            <HorizontalStackLayout Padding="5"
+                                   Spacing="10">
+                <Label Text="SubTotal"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+
+                <Entry Text="{Binding SubTotal}"
+                       IsReadOnly="True"
+                       WidthRequest="180"
+                       HeightRequest="45"
+                       HorizontalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- Descuento -->
+            <HorizontalStackLayout Padding="5"
+                                   Spacing="10">
+                <Label Text="Descuento"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+
+                <Entry Text="{Binding Descuento}"
+                       IsReadOnly="True"
+                       WidthRequest="180"
+                       HeightRequest="45"
+                       HorizontalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- Total Compra -->
+            <HorizontalStackLayout Padding="5"
+                                   Spacing="10">
+                <Label Text="Total Compra"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+
+                <Entry Text="{Binding TotalCompra}"
+                       IsReadOnly="True"
+                       WidthRequest="180"
+                       HeightRequest="45"
+                       HorizontalTextAlignment="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- Limpiar -->
+            <Button Text="Limpiar"
+                    BackgroundColor="#FF2B8989"
+                    FontSize="20"
+                    Command="{Binding LimpiarCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
